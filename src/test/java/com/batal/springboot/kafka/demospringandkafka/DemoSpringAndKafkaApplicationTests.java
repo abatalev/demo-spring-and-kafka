@@ -15,6 +15,8 @@ import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.kafka.test.utils.KafkaTestUtils;
 import org.springframework.test.annotation.DirtiesContext;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -25,10 +27,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DirtiesContext
 @EmbeddedKafka(
         partitions = 1,
-        brokerProperties = {"listeners=PLAINTEXT://localhost:39092", "port=39092"},
-        topics = {"my-test-topic"}
+        brokerProperties = {
+            "listeners=PLAINTEXT://localhost:39092", 
+            "port=39092", "log.dir=target/logs"
+        }, topics = {"my-test-topic"}
 )
 class DemoSpringAndKafkaApplicationTests {
+
+    static {
+        System.setProperty("java.io.tmpdir", "target/tmp");
+        new File("target/tmp").mkdirs();
+    }
 
     private static String TOPIC = "my-test-topic";
 
@@ -36,7 +45,7 @@ class DemoSpringAndKafkaApplicationTests {
     private EmbeddedKafkaBroker embeddedKafkaBroker;
 
     @Test
-    public void chackSendData() {
+    public void checkSendData() {
         String data = UUID.randomUUID().toString();
 
         KafkaService service = new KafkaService(TOPIC, getTemplate(embeddedKafkaBroker));
