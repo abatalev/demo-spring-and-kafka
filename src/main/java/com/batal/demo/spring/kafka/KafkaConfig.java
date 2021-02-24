@@ -1,4 +1,4 @@
-package com.batal.springboot.kafka.demospringandkafka;
+package com.batal.demo.spring.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;

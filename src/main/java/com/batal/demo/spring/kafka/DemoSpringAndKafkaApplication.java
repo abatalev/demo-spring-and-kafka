@@ -1,4 +1,4 @@
-package com.batal.springboot.kafka.demospringandkafka;
+package com.batal.demo.spring.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

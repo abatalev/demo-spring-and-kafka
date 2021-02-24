@@ -1,4 +1,4 @@
-package com.batal.springboot.kafka.demospringandkafka;
+package com.batal.demo.spring.kafka;
 
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -16,7 +16,6 @@ import org.springframework.kafka.test.utils.KafkaTestUtils;
 import org.springframework.test.annotation.DirtiesContext;
 
 import java.io.File;
-import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.UUID;
 
