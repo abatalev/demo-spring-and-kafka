@@ -44,7 +44,7 @@ class DemoSpringAndKafkaApplicationTests {
     private EmbeddedKafkaBroker embeddedKafkaBroker;
 
     @Test
-    public void checkSendData() {
+    void checkSendData() {
         String data = UUID.randomUUID().toString();
 
         KafkaService service = new KafkaService(TOPIC, getTemplate(embeddedKafkaBroker));

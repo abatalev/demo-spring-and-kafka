@@ -35,12 +35,12 @@ public class KafkaService {
     }
 
     public void sendData(String value) {
-        log.info("sent!! " + value);
+        log.info("sent!! {}", value);
         template.send(producerTopic, value);
     }
 
     @KafkaListener(topics = "${spring.kafka.consumer.topic}")
     public void listen(ConsumerRecord<?, ?> cr) throws Exception {
-        log.info("loaded!!" + cr.value());
+        log.info("loaded!! {}", cr.value());
     }
 }
